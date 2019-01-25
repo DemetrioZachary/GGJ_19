@@ -11,19 +11,30 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SceneManager.LoadSceneAsync(scenesName[0],LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(scenesName[0], LoadSceneMode.Additive);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) { ChangeInsideScene(); }
+        if (Input.GetKeyDown(KeyCode.E)) { StartCoroutine(ChangeInsideScene()); }
     }
 
-    public void ChangeInsideScene()
+    private IEnumerator ChangeInsideScene()
     {
-        // TODO maybe use coroutines
-        SceneManager.UnloadSceneAsync(scenesName[currentScene]);
+        AsyncOperation op = SceneManager.UnloadSceneAsync(scenesName[currentScene]);
+        while (!op.isDone)
+        {
+            yield return null;
+        }
+
         if (++currentScene >= scenesName.Length) { currentScene = 0; }
-        SceneManager.LoadSceneAsync(scenesName[currentScene],LoadSceneMode.Additive);
+        op = SceneManager.LoadSceneAsync(scenesName[currentScene], LoadSceneMode.Additive);
+
+        while (!op.isDone)
+        {
+            yield return null;
+        }
+
+        print(FindObjectOfType<Test>().name);
     }
 }
