@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Road
-  - Pot
+  - Obstacle
+  - Offroad
+  - Hole
   layers:
   - Default
   - TransparentFX

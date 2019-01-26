@@ -20,7 +20,6 @@ public class MinigameManager : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 turnComponent;
     private Vector3 bumpComponent;
-    private Vector3 offroadComponent;
     private Vector3 vibrationComponent;
 
     private bool offroad = false;
@@ -36,7 +35,7 @@ public class MinigameManager : MonoBehaviour
     void Update()
     {
         Vibration();
-        wincingTarget.position = startPosition + turnComponent + bumpComponent + offroadComponent + vibrationComponent;
+        wincingTarget.position = startPosition + turnComponent + bumpComponent + vibrationComponent;
     }
 
     // Methods for car

@@ -9,12 +9,14 @@ public class CarController : MonoBehaviour
     public float maxLeft;
     public float maxRight;
 
+    
     private Transform mesh;
     private float xMove;
 
     private void Start()
     {
         mesh = transform.GetChild(0);
+        
     }
 
     void Update()
@@ -40,4 +42,6 @@ public class CarController : MonoBehaviour
 
         mesh.eulerAngles = new Vector3(0, 30 * xMove, 0);
     }
+
+    
 }
