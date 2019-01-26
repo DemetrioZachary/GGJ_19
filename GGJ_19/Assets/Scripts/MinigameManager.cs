@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public class MinigameManager : MonoBehaviour
 {
+    public Transform[] wincing;
+
     // Start is called before the first frame update
     void Start()
     {
