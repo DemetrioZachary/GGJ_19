@@ -485,8 +485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenesName:
-  - Minigame4
-  - Minigame2
+  - Dentifricio
+  - Piantine
 --- !u!4 &1458987857
 Transform:
   m_ObjectHideFlags: 0
