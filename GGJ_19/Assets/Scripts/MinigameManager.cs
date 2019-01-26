@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class MinigameManager : MonoBehaviour
 {
+    public enum BumpType { Stone, Hole}
+
     public static MinigameManager instance;
 
-    public Transform wincing;
+    public Transform wincingTarget;
     [Space(5)]
     public float maxTurnIntensity;
     public float bumpDuration;
     public float bumpIntensity;
-    public float offroadIntensity;
-    public float offroadSpeed;
+    public float offroadIntensityMultiplier;
     public Vector3 vibrationIntensity;
     public Vector3 vibrationSpeed;
 
@@ -28,61 +29,45 @@ public class MinigameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        startPosition = wincing.position;
+        startPosition = wincingTarget.position;
     }
 
 
     void Update()
     {
         Vibration();
-        wincing.position = startPosition + turnComponent + bumpComponent + offroadComponent + vibrationComponent;
+        wincingTarget.position = startPosition + turnComponent + bumpComponent + offroadComponent + vibrationComponent;
     }
 
-    public void DoBump()
+    // Methods for car
+    // ----------------------------------------------------------------------------
+    public void DoBump(BumpType bumpType)
     {
-        StartCoroutine(Bump());
+        StartCoroutine(Bump(bumpType));
     }
 
     public void EnableOffroad(bool enabled)
     {
-        if (enabled)
-        {
-            offroad = true;
-            StartCoroutine(Offroad());
-        }
-        else
-        {
-            offroad = false;
-        }
+        offroad = enabled;
     }
 
-    public void AddTurningEffect(float value01)
+    public void AddTurnAcceleration(float value01)
     {
         turnComponent = new Vector3(value01 * maxTurnIntensity, 0, 0);
     }
+    // ---------------------------------------------------------------------------
 
-    private IEnumerator Bump()
+    private IEnumerator Bump(BumpType bumpType)
     {
+        float sign = (bumpType == BumpType.Stone ? 1 : -1);
         float time = 0;
 
         while (time < bumpDuration)
         {
-            float angle = time / bumpDuration * Mathf.PI;
+            float angle = time / bumpDuration * Mathf.PI * sign;
             bumpComponent = new Vector3(0, Mathf.Sin(angle) * bumpIntensity, 0);
             yield return new WaitForEndOfFrame();
             time += Time.deltaTime;
-        }
-    }
-
-    private IEnumerator Offroad()
-    {
-        float time = 0;
-        while (offroad)
-        {
-            offroadComponent = new Vector3(0, Mathf.Sin(time * offroadSpeed) * offroadIntensity, 0);
-            yield return new WaitForEndOfFrame();
-            time += Time.deltaTime;
-            if (time * offroadSpeed >= 2 * Mathf.PI) { time = 0; }
         }
     }
 
@@ -90,5 +75,9 @@ public class MinigameManager : MonoBehaviour
     {
         float time = Time.time;
         vibrationComponent = new Vector3(Mathf.Sin(time * vibrationSpeed.x) * vibrationIntensity.x, Mathf.Sin(time * vibrationSpeed.y) * vibrationIntensity.y, Mathf.Sin(time * vibrationSpeed.z) * vibrationIntensity.z);
+        if (offroad)
+        {
+            vibrationComponent *= offroadIntensityMultiplier;
+        }
     }
 }
