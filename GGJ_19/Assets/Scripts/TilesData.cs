@@ -6,5 +6,5 @@ public class TilesData : MonoBehaviour
 {
     public GameObject[] tiles;
 
-   
+    public GameObject[] obstacles;
 }

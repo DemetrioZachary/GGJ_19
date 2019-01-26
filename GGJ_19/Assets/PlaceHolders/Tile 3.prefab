@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4644718516802770290}
   - component: {fileID: 5159519455311041424}
   - component: {fileID: 8869937477041200266}
+  - component: {fileID: 1258369053158805674}
   m_Layer: 0
   m_Name: Tile 3
   m_TagString: Untagged
@@ -108,8 +109,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8581fff96249c474cad9fb74837ad796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camDistance: 10
+  camDistance: 45
   scrollSpeed: 5
+--- !u!114 &1258369053158805674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254658245650081339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fbc881b01aa394494441ea6c06dc17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMin: -3
+  zMin: 4
+  xMax: 3
+  zMax: 4
+  minObsDist: 1
 --- !u!1 &5999063064525092301
 GameObject:
   m_ObjectHideFlags: 0
