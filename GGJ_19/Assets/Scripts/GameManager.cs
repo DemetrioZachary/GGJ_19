@@ -34,7 +34,5 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
-
-        print(FindObjectOfType<Test>().name);
     }
 }
