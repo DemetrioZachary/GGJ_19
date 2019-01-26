@@ -31,5 +31,10 @@ public class TilesGenerator : MonoBehaviour
             Instantiate(tiles[Random.Range(0,3)], new Vector3 (transform.position.x, transform.position.y, endTile.position.z + 5f), Quaternion.identity);
             tileSpawned = true;
         }
+
+        if(transform.position.z <= cam.transform.position.z - camDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 }
