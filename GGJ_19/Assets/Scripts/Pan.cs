@@ -11,6 +11,7 @@ public class Pan : MonoBehaviour
     private Animator anim;
     private bool canMove = true;
 
+
     void Start()
     {
         anim = transform.GetChild(0).GetComponent<Animator>();
@@ -25,6 +26,7 @@ public class Pan : MonoBehaviour
         if (canMove == true)
         {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x + x * speed * Time.deltaTime, minX, maxX), Mathf.Clamp(transform.position.y + y * speed * Time.deltaTime, minY, maxY), 0);
+
         }
 
 
@@ -32,12 +34,25 @@ public class Pan : MonoBehaviour
         {
             anim.SetBool("Up", true);
             canMove = false;
+            StartCoroutine(Reset());
         }
+
         else if (Input.GetMouseButtonUp(0))
         {
             anim.SetBool("Up", false);
             canMove = true;
         }
 
+        if (transform.position.y < -0.5f)
+        {
+            transform.position = new Vector3(transform.position.x, -0.5f, transform.position.z);
+        }
     }
+
+    IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(0.5f);
+        transform.GetChild(0).GetComponent<panDetection>().hasHit = false;
+    }
+
 }
