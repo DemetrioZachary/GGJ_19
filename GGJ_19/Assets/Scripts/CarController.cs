@@ -9,7 +9,7 @@ public class CarController : MonoBehaviour
     public float maxLeft;
     public float maxRight;
 
-    
+    private MinigameManager MGM;
     private Transform mesh;
     private float xMove;
 
@@ -31,6 +31,7 @@ public class CarController : MonoBehaviour
         }
 
 
+
         Turn();
     }
 
@@ -41,6 +42,16 @@ public class CarController : MonoBehaviour
         transform.Translate(xMove * horizontalSpeed * Time.deltaTime, 0, 0);
 
         mesh.eulerAngles = new Vector3(0, 30 * xMove, 0);
+
+        if(xMove != 0)
+        {
+            if(MGM == null)
+            {
+                MGM = FindObjectOfType<MinigameManager>();
+            }
+
+            MGM.AddTurnAcceleration(xMove);
+        }
     }
 
     

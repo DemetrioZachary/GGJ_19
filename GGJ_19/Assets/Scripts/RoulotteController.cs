@@ -8,10 +8,6 @@ public class RoulotteController : MonoBehaviour
 
     private MinigameManager MGM;
 
-    void Start()
-    {
-    }
-
 
     void Update()
     {
