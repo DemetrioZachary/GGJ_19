@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 5
-  maxLeft: -3
-  maxRight: 3
+  maxLeft: -53
+  maxRight: 53
 --- !u!65 &227604114756284818
 BoxCollider:
   m_ObjectHideFlags: 0
