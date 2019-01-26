@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 5
   maxLeft: -53
-  maxRight: 53
+  maxRight: -47
 --- !u!65 &227604114756284818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 1608732277558744450}
   - component: {fileID: 3559412084596187060}
   - component: {fileID: 2531787944749994587}
-  - component: {fileID: 3541177060625606290}
   m_Layer: 0
   m_Name: mesh
   m_TagString: Untagged
@@ -139,19 +138,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &3541177060625606290
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3541177060625606288}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
