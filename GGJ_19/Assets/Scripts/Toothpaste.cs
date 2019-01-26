@@ -8,8 +8,8 @@ public class Toothpaste : MonoBehaviour
     public float minX, maxX, minY, maxY;
     [Space(3)]
     public Transform brush;
-    public ParticleSystem part;
-    public List<ParticleCollisionEvent> collisionEvents;
+    private ParticleSystem part;
+    private List<ParticleCollisionEvent> collisionEvents;
     public Camera cam;
 
     private Collider2D[] colliders;
