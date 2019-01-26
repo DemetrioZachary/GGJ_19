@@ -48,11 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   minX: -2.5
-  maxX: 3
-  minY: -1.25
-  maxY: 3
+  maxX: 2.4
+  minY: 0.5
+  maxY: 3.5
   brush: {fileID: 0}
-  part: {fileID: 4295664242838285674}
   cam: {fileID: 0}
 --- !u!198 &4295664242838285674
 ParticleSystem:

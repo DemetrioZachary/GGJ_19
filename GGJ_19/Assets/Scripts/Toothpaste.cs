@@ -75,6 +75,9 @@ public class Toothpaste : MonoBehaviour
             if (!pasteOnCollider[i]) { checkCompletion = false; }
         }
         completed = checkCompletion;
-        // TODO send to GameManager
+        if (completed)
+        {
+            FindObjectOfType<GameManager>().ChangeMinigame();
+        }
     }
 }

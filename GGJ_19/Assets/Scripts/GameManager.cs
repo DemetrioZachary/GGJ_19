@@ -12,11 +12,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SceneManager.LoadSceneAsync(scenesName[0], LoadSceneMode.Additive);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E)) { StartCoroutine(ChangeInsideScene()); }
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private IEnumerator ChangeInsideScene()
@@ -34,5 +31,10 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    public void ChangeMinigame()
+    {
+        StartCoroutine(ChangeInsideScene());
     }
 }

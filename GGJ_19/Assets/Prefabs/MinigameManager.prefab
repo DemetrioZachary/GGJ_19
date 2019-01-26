@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wincingTarget: {fileID: 0}
-  maxTurnIntensity: 2
+  turnIntensity: 10
   bumpDuration: 0.5
-  bumpIntensity: 1.5
-  offroadIntensityMultiplier: 3
-  vibrationIntensity: {x: 0.3, y: 0.3, z: 0.3}
-  vibrationSpeed: {x: 0.1, y: 0.1, z: 0.1}
+  bumpIntensity: 1
+  offroadIntensityMultiplier: 2
+  vibrationIntensity: {x: 0.075, y: 0.075}
+  vibrationSpeed: {x: 2, y: 5}

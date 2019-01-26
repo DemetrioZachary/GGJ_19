@@ -10,12 +10,12 @@ public class MinigameManager : MonoBehaviour
 
     public Transform wincingTarget;
     [Space(5)]
-    public float maxTurnIntensity;
+    public float turnIntensity;
     public float bumpDuration;
     public float bumpIntensity;
     public float offroadIntensityMultiplier;
-    public Vector3 vibrationIntensity;
-    public Vector3 vibrationSpeed;
+    public Vector2 vibrationIntensity;
+    public Vector2 vibrationSpeed;
 
     private Vector3 startPosition;
     private Vector3 turnComponent;
@@ -52,7 +52,7 @@ public class MinigameManager : MonoBehaviour
 
     public void AddTurnAcceleration(float value01)
     {
-        turnComponent = new Vector3(value01 * maxTurnIntensity, 0, 0);
+        turnComponent = new Vector3(value01 * turnIntensity * Time.deltaTime, 0, 0);
     }
     // ---------------------------------------------------------------------------
 
@@ -63,8 +63,8 @@ public class MinigameManager : MonoBehaviour
 
         while (time < bumpDuration)
         {
-            float angle = time / bumpDuration * Mathf.PI * sign;
-            bumpComponent = new Vector3(0, Mathf.Sin(angle) * bumpIntensity, 0);
+            float angle = time / bumpDuration * Mathf.PI;
+            bumpComponent = new Vector3(0, Mathf.Sin(angle) * bumpIntensity * sign, 0);
             yield return new WaitForEndOfFrame();
             time += Time.deltaTime;
         }
@@ -73,7 +73,7 @@ public class MinigameManager : MonoBehaviour
     private void Vibration()
     {
         float time = Time.time;
-        vibrationComponent = new Vector3(Mathf.Sin(time * vibrationSpeed.x) * vibrationIntensity.x, Mathf.Sin(time * vibrationSpeed.y) * vibrationIntensity.y, Mathf.Sin(time * vibrationSpeed.z) * vibrationIntensity.z);
+        vibrationComponent = new Vector3(Mathf.Sin(time * vibrationSpeed.x) * vibrationIntensity.x, Mathf.Sin(time * vibrationSpeed.y) * vibrationIntensity.y, 0);
         if (offroad)
         {
             vibrationComponent *= offroadIntensityMultiplier;

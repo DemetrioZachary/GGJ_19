@@ -13,6 +13,7 @@ public class WateringCan : MonoBehaviour
     private ParticleSystem part;
     private float[] timers;
     private bool completed = false;
+    private Animator animator;
 
     private void OnDrawGizmos()
     {
@@ -22,6 +23,7 @@ public class WateringCan : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         part = GetComponent<ParticleSystem>();
         timers = new float[pots.Length];
         for(int i = 0; i < timers.Length; i++)
@@ -36,17 +38,19 @@ public class WateringCan : MonoBehaviour
         float y = Input.GetAxis("Mouse Y");
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x + x * speed * Time.deltaTime, minX, maxX), Mathf.Clamp(transform.position.y + y * speed * Time.deltaTime, minY, maxY), 0);
-        /*
+        
         if (Input.GetMouseButtonDown(0))
         {
-            var emission = part.emission;
-            emission.enabled = true;
+            animator.SetBool("Versa", true);
+            //var emission = part.emission;
+            //emission.enabled = true;
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            var emission = part.emission;
-            emission.enabled = false;
-        }*/
+            animator.SetBool("Versa", false);
+            //var emission = part.emission;
+            //emission.enabled = false;
+        }
 
         if (Input.GetMouseButton(0))
         {
@@ -81,8 +85,7 @@ public class WateringCan : MonoBehaviour
         completed = checkCompletion;
         if (completed)
         {
-            // SEND TO GAME MANAGER
-            print("COMPLETED");
+            FindObjectOfType<GameManager>().ChangeMinigame();
         }
     }
 }
