@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
     public string[] scenesName;
 
     private int currentScene = 0;
+    private ColorChange cg;
 
     private void Start()
     {
         SceneManager.LoadSceneAsync(scenesName[0], LoadSceneMode.Additive);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        cg = FindObjectOfType<ColorChange>();
     }
 
     private IEnumerator ChangeInsideScene()
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+        cg.ChangeColor();
     }
 
     public void ChangeMinigame()
