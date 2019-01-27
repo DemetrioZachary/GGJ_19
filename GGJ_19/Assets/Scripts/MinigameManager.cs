@@ -31,16 +31,14 @@ public class MinigameManager : MonoBehaviour
     {
         instance = this;
         startPosition = wincingTarget.position;
+        StartCoroutine(Vibration());
     }
 
 
     void Update()
     {
-        Vibration();
         turnComponent *= 1 - turnSpeedReductionRate * Time.deltaTime;
         wincingTarget.position = startPosition + turnComponent + bumpComponent + vibrationComponent;
-
-        print(turnComponent);
     }
 
     // Methods for car
@@ -75,13 +73,18 @@ public class MinigameManager : MonoBehaviour
         }
     }
 
-    private void Vibration()
+    private IEnumerator Vibration()
     {
-        float time = Time.time;
-        vibrationComponent = new Vector3(Mathf.Sin(time * vibrationSpeed.x) * vibrationIntensity.x, Mathf.Sin(time * vibrationSpeed.y) * vibrationIntensity.y, 0);
-        if (offroad)
+        float time = 0;
+        while (true)
         {
-            vibrationComponent *= offroadIntensityMultiplier;
+            vibrationComponent = new Vector3(Mathf.Sin(time * vibrationSpeed.x) * vibrationIntensity.x, Mathf.Sin(time * vibrationSpeed.y) * vibrationIntensity.y, 0);
+            if (offroad)
+            {
+                vibrationComponent *= offroadIntensityMultiplier;
+            }
+            yield return new WaitForEndOfFrame();
+            time += Time.deltaTime;
         }
     }
 }

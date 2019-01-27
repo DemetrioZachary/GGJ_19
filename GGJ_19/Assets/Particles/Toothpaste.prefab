@@ -49,7 +49,7 @@ MonoBehaviour:
   speed: 4
   minX: -1.81
   maxX: 1.6
-  minY: 1.14
+  minY: 1.37
   maxY: 3.32
   brush: {fileID: 0}
   cam: {fileID: 0}

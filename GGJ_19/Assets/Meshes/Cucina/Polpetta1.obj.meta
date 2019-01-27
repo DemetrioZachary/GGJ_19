@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 847dffdfc16386443bcbe262b033665d
+guid: ed4d1a8f10fc23748b525946eddd2b4b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: polySurface10_Polpette
-    400000: //RootNode
-    400002: polySurface10_Polpette
-    2100000: polySurface10_PolpetteMat
-    2300000: polySurface10_Polpette
-    3300000: polySurface10_Polpette
-    4300000: polySurface10_Polpette
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2100000: defaultMat
+    2300000: default
+    3300000: default
+    4300000: default
   externalObjects: {}
   materials:
     importMaterials: 1

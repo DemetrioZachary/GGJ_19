@@ -11,10 +11,15 @@ public class Pan : MonoBehaviour
     private Animator anim;
     private bool canMove = true;
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(new Vector3((maxX + minX) / 2, (maxY + minY) / 2, 0), new Vector3(maxX - minX, maxY - minY, 0));
+    }
 
     void Start()
     {
-        anim = transform.GetChild(0).GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -32,14 +37,13 @@ public class Pan : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            anim.SetBool("Up", true);
+            anim.SetTrigger("Up");
             canMove = false;
             StartCoroutine(Reset());
         }
 
         else if (Input.GetMouseButtonUp(0))
         {
-            anim.SetBool("Up", false);
             canMove = true;
         }
 

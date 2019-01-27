@@ -7,7 +7,7 @@ public class panDetection : MonoBehaviour
     public bool hasHit = true;
     public int succesCount = 0;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Polpetta" && hasHit == false)
         {
