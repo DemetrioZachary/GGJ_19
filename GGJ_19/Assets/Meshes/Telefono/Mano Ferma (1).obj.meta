@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 32c6da84f3ac40d41bc7c234dd4b0342
+guid: 52dc19c1fbd9560429e34bc503d23494
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Schermo_Telefono_Mano_e_Telefono
+    100002: Mano_e_Telefono_Mano_Ferma
+    100004: Telefono_Mano_e_Telefono
     400000: //RootNode
-    400002: Schermo_Telefono_Mano_e_Telefono
-    2100000: Schermo_Telefono_Mano_e_TelefonoMat
-    2300000: Schermo_Telefono_Mano_e_Telefono
-    3300000: Schermo_Telefono_Mano_e_Telefono
-    4300000: Schermo_Telefono_Mano_e_Telefono
+    400002: Mano_e_Telefono_Mano_Ferma
+    400004: Telefono_Mano_e_Telefono
+    2100000: Mano_e_Telefono_Mano_FermaMat
+    2100002: Telefono_Mano_e_TelefonoMat
+    2300000: Mano_e_Telefono_Mano_Ferma
+    2300002: Telefono_Mano_e_Telefono
+    3300000: Mano_e_Telefono_Mano_Ferma
+    3300002: Telefono_Mano_e_Telefono
+    4300000: Mano_e_Telefono_Mano_Ferma
+    4300002: Telefono_Mano_e_Telefono
   externalObjects: {}
   materials:
     importMaterials: 1
