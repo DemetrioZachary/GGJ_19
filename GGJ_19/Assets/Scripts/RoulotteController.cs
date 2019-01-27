@@ -13,7 +13,7 @@ public class RoulotteController : MonoBehaviour
     {
         transform.LookAt(car);
 
-        transform.position = Vector3.Lerp(transform.position, new Vector3(car.position.x, transform.position.y, transform.position.z), 0.1f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(car.position.x, transform.position.y, transform.position.z), 2f * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

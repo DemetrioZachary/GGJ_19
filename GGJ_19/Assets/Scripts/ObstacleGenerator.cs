@@ -21,31 +21,36 @@ public class ObstacleGenerator : MonoBehaviour
 
         obstaclesPos = new List<Transform>();
 
-        for (int i = 0; i < Random.Range(0, 3); i++)
+        for (int i = 0; i < Random.Range(3, 6); i++)
         {
-            obs = Instantiate(obstacles[Random.Range(0, 2)], new Vector3(Random.Range(xMin, xMax), transform.position.y + 0.1f, Random.Range(zMin, zMax)), Quaternion.Euler(90, 0, 0));
+            obs = Instantiate(obstacles[Random.Range(0, 2)], new Vector3(Random.Range(xMin, xMax), transform.position.y + 0.1f, Random.Range(zMin, zMax)), Quaternion.identity);
             obs.transform.parent = this.transform;
-            obstaclesPos.Add(obs.transform);
 
-            //SetObsPosition();
-        }
-
-
-    }
-
-    void SetObsPosition()
-    {
-
-        obs.transform.position = new Vector3(Random.Range(-xMin, xMax), transform.position.y + 0.1f, Random.Range(-zMin, zMax));
-
-        for (int n = 1; n < obstaclesPos.Count; n++)
-        {
-            if (Vector3.Distance(obs.transform.position, obstaclesPos[n].transform.position) < minObsDist)
+            for (int n = 0; n < obstaclesPos.Count; n++)
             {
-                SetObsPosition();
+                if (Vector3.Distance(obs.transform.position, obstaclesPos[n].transform.position) < minObsDist)
+                {
+                    obs.transform.position = new Vector3(obs.transform.position.x, obs.transform.position.y, obs.transform.position.z + 1);
+                }
             }
+
+            obstaclesPos.Add(obs.transform);
         }
+
 
     }
 
+   // void AdjustPos()
+    //{
+    //    obs.transform.position = new Vector3(Random.Range(xMin, xMax), transform.position.y + 0.1f, Random.Range(zMin, zMax));
+
+    //    for (int n = 0; n < obstaclesPos.Count; n++)
+    //    {
+    //        if (Vector3.Distance(obs.transform.position, obstaclesPos[n].transform.position) < minObsDist)
+    //        {
+    //            AdjustPos();
+    //        }
+
+    //    }
+    //}
 }

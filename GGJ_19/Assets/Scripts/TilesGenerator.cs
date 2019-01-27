@@ -28,7 +28,7 @@ public class TilesGenerator : MonoBehaviour
 
         if(transform.position.z <= cam.transform.position.z + camDistance && tileSpawned == false)
         {
-            Instantiate(tiles[Random.Range(0,3)], new Vector3 (transform.position.x, transform.position.y, endTile.position.z + 5f), Quaternion.identity);
+            Instantiate(tiles[Random.Range(0,3)], new Vector3 (transform.position.x, transform.position.y, endTile.position.z + 22f), Quaternion.identity);
             tileSpawned = true;
         }
 
