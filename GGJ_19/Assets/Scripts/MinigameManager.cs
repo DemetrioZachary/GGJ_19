@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class MinigameManager : MonoBehaviour
 {
-    public enum BumpType { Stone, Hole}
+    public enum BumpType { Stone, Hole }
 
     public static MinigameManager instance;
 
     public Transform wincingTarget;
     [Space(5)]
     public float turnIntensity;
+    public float turnSpeed;
+    public float turnSpeedReductionRate;
     public float bumpDuration;
     public float bumpIntensity;
     public float offroadIntensityMultiplier;
@@ -18,9 +20,9 @@ public class MinigameManager : MonoBehaviour
     public Vector2 vibrationSpeed;
 
     private Vector3 startPosition;
-    private Vector3 turnComponent;
-    private Vector3 bumpComponent;
-    private Vector3 vibrationComponent;
+    private Vector3 turnComponent = Vector3.zero;
+    private Vector3 bumpComponent = Vector3.zero;
+    private Vector3 vibrationComponent = Vector3.zero;
 
     private bool offroad = false;
 
@@ -35,7 +37,10 @@ public class MinigameManager : MonoBehaviour
     void Update()
     {
         Vibration();
+        turnComponent *= 1 - turnSpeedReductionRate * Time.deltaTime;
         wincingTarget.position = startPosition + turnComponent + bumpComponent + vibrationComponent;
+
+        print(turnComponent);
     }
 
     // Methods for car
@@ -50,9 +55,9 @@ public class MinigameManager : MonoBehaviour
         offroad = enabled;
     }
 
-    public void AddTurnAcceleration(float value01)
+    public void AddTurnAcceleration(float sign)
     {
-        turnComponent = new Vector3(value01 * turnIntensity * Time.deltaTime, 0, 0);
+        turnComponent = new Vector3(Mathf.Clamp(turnComponent.x + sign * turnSpeed * Time.deltaTime, -turnIntensity, turnIntensity), 0, 0);
     }
     // ---------------------------------------------------------------------------
 

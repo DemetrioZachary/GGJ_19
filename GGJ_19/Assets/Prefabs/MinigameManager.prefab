@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wincingTarget: {fileID: 0}
-  turnIntensity: 10
+  turnIntensity: 2
+  turnSpeed: 2
+  turnSpeedReductionRate: 0.9
   bumpDuration: 0.5
   bumpIntensity: 1
   offroadIntensityMultiplier: 2

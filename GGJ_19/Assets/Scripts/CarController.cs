@@ -50,7 +50,7 @@ public class CarController : MonoBehaviour
                 MGM = FindObjectOfType<MinigameManager>();
             }
 
-            MGM.AddTurnAcceleration(xMove);
+            MGM.AddTurnAcceleration(Mathf.Sign(xMove));
         }
     }
 
