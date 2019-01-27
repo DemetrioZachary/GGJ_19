@@ -40,4 +40,12 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(ChangeInsideScene());
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
 }
