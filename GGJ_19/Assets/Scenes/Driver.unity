@@ -365,9 +365,11 @@ MonoBehaviour:
   - {fileID: 147326484711176440, guid: f4e969174346f95468356f9c8ebf2486, type: 3}
   - {fileID: 6515676591082756223, guid: 2a00934904745d24b9bbf124eeafa1e5, type: 3}
   - {fileID: 1254658245650081339, guid: 4b39a496f930c3b43ba5142f52643fd2, type: 3}
+  - {fileID: 1254658245650081339, guid: 11cb38e62552fa947863acfd326d5916, type: 3}
   obstacles:
-  - {fileID: 3622813281483373041, guid: e787e9d4fa91d2a4a99a1bb2dba85803, type: 3}
-  - {fileID: 6343075317197800131, guid: 6ab88d739ff848b42a145449189266db, type: 3}
+  - {fileID: 6142767523786321855, guid: 622c06564c287904db3c0dcde5b52c25, type: 3}
+  - {fileID: 69228846098336889, guid: f4d794303fc6b984dafa2eb471c398da, type: 3}
+  - {fileID: 5346187143640061687, guid: 9b51b4e004d741b42af29337b300e6c5, type: 3}
 --- !u!4 &1099763074
 Transform:
   m_ObjectHideFlags: 0
@@ -448,10 +450,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 257084585, guid: f4e969174346f95468356f9c8ebf2486, type: 3}
-      propertyPath: camDistance
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4e969174346f95468356f9c8ebf2486, type: 3}
@@ -722,7 +720,12 @@ PrefabInstance:
     - target: {fileID: 6520159994388354262, guid: eaf621838be53374d9f0c7bfde891e4f,
         type: 3}
       propertyPath: maxRight
-      value: -47
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520159994388354262, guid: eaf621838be53374d9f0c7bfde891e4f,
+        type: 3}
+      propertyPath: maxLeft
+      value: -55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf621838be53374d9f0c7bfde891e4f, type: 3}
