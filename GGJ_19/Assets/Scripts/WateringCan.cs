@@ -9,8 +9,10 @@ public class WateringCan : MonoBehaviour
     [Space(5)]
     public float wateringTime;
     public GameObject[] pots;
+    public SpriteRenderer[] flowers;
+    public Sprite[] flowersSprite;
 
-    private ParticleSystem part;
+    public ParticleSystem part;
     private float[] timers;
     private bool completed = false;
     private Animator animator;
@@ -24,7 +26,6 @@ public class WateringCan : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        part = GetComponent<ParticleSystem>();
         timers = new float[pots.Length];
         for(int i = 0; i < timers.Length; i++)
         {
@@ -42,14 +43,14 @@ public class WateringCan : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("Versa", true);
-            //var emission = part.emission;
-            //emission.enabled = true;
+            var emission = part.emission;
+            emission.enabled = true;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             animator.SetBool("Versa", false);
-            //var emission = part.emission;
-            //emission.enabled = false;
+            var emission = part.emission;
+            emission.enabled = false;
         }
 
         if (Input.GetMouseButton(0))
@@ -71,7 +72,7 @@ public class WateringCan : MonoBehaviour
                     timers[i] -= Time.deltaTime;
                     if (timers[i] <= 0)
                     {
-                        // SPAWN FOGLIOLINA
+                        flowers[i].sprite = flowersSprite[i];
                     }
                 }
             }

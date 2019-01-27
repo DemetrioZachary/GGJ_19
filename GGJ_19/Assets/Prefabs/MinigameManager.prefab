@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wincingTarget: {fileID: 0}
-  turnIntensity: 2
-  turnSpeed: 2
+  turnIntensity: 0.5
+  turnSpeed: 1.5
   turnSpeedReductionRate: 0.9
   bumpDuration: 0.5
-  bumpIntensity: 1
+  bumpIntensity: 0.5
   offroadIntensityMultiplier: 2
   vibrationIntensity: {x: 0.075, y: 0.075}
   vibrationSpeed: {x: 2, y: 5}

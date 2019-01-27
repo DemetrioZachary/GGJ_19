@@ -23,7 +23,7 @@ public class ObstacleGenerator : MonoBehaviour
 
         for (int i = 0; i < Random.Range(3, 6); i++)
         {
-            obs = Instantiate(obstacles[Random.Range(0, 2)], new Vector3(Random.Range(xMin, xMax), transform.position.y + 0.1f, Random.Range(zMin, zMax)), Quaternion.identity);
+            obs = Instantiate(obstacles[Random.Range(0, obstacles.Length)], new Vector3(Random.Range(xMin, xMax), transform.position.y + 0.1f, Random.Range(zMin, zMax)), Quaternion.identity);
             obs.transform.parent = this.transform;
 
             for (int n = 0; n < obstaclesPos.Count; n++)

@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Pan : MonoBehaviour
 {
 
     public float speed;
     public float minX, maxX, minY, maxY;
+    public UnityEvent OnPush;
+
+    public BoxCollider launchTrigger;
 
     private Animator anim;
     private bool canMove = true;
+
 
     private void OnDrawGizmos()
     {
@@ -37,6 +42,13 @@ public class Pan : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            foreach (Collider overlapping in Physics.OverlapBox(transform.position + launchTrigger.center, launchTrigger.size))
+            {
+                if (overlapping.CompareTag("Polpetta"))
+                {
+                    OnPush.Invoke();
+                }
+            }
             anim.SetTrigger("Up");
             canMove = false;
             StartCoroutine(Reset());

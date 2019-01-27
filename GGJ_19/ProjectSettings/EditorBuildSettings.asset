@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 7fa1034a5a4b0184f8898804a7ea7744
+  - enabled: 1
     path: Assets/Scenes/Driver.unity
     guid: 9e5db013abbc2554cb2f03a3d72d1af6
   - enabled: 1
@@ -14,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Piantine.unity
     guid: 430066c33ba805f4e8645873784027bc
+  - enabled: 1
+    path: Assets/Scenes/Padella.unity
+    guid: cc692c7e742ba404f95000135177954a
   m_configObjects: {}

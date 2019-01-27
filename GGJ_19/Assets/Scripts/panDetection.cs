@@ -7,7 +7,7 @@ public class panDetection : MonoBehaviour
     public bool hasHit = true;
     public int succesCount = 0;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Polpetta" && hasHit == false)
         {
@@ -16,7 +16,7 @@ public class panDetection : MonoBehaviour
 
             if (succesCount == 3)
             {
-                Debug.Log("KTM");
+                FindObjectOfType<GameManager>().ChangeMinigame();
             }
         }
     }
